@@ -1,4 +1,4 @@
-# vue-nuxt-app
+# frontend
 
 ## Build Setup
 
