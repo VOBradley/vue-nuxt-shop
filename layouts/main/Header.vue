@@ -20,39 +20,34 @@
             </div>
             <div class="header-nav-link">
               <ul>
-                <li><a class="header-nav-link" href="#">Виды рыб</a></li>
-                <li class="header-nav-link-openmenu">
-                  <a class="header-nav-link" href="#">Каталог</a>
-                  <ul>
-                    <li><a href="#">Снекки</a></li>
-                    <li><a href="#">Чипсы</a></li>
-                    <li><a href="#">Сёмга слабосолёная</a></li>
+                <li
+                  v-for="item in items"
+                  :key="item.label"
+                  :class="{ headerNavLinkOpenMenu: item.nodes }"
+                >
+                  <a href="#" class="header-nav-link">{{ item.label }} </a>
+                  <ul v-if="item.nodes">
+                    <li v-for="node in item.nodes" :key="node.label">
+                      <a href="#">{{ node.label }}</a>
+                    </li>
                   </ul>
                 </li>
-                <li><a class="header-nav-link" href="#">Новинки и акции</a></li>
-                <li>
-                  <a class="header-nav-link" href="#">Доставка и оплата</a>
-                </li>
-                <li><a class="header-nav-link" href="#">Статьи</a></li>
                 <li class="header-nav-account-li">
-                  <a class="header-nav-account" href="#"
+                  <a href="#" class="header-nav-account"
                     ><img
-                      class="filter-white"
-                      src="@/static/img/icon-account.svg"
+                      src="/_nuxt/static/img/icon-account.svg"
                       alt="Иконка аккаунта"
+                      class="filter-white"
                   /></a>
                   <div class="modal modal-account" style="display: none">
                     <div class="modal-account-block">
                       <div class="modal-account-block-btn-list">
-                        <a href="#">Личный кабинет</a>
-                        <a href="#">Вход</a>
+                        <a href="#">Личный кабинет</a> <a href="#">Вход</a>
                         <a href="#">Регистрация</a>
                       </div>
                       <div class="modal-account-block-link-list">
-                        <a href="#">Профиль</a>
-                        <a href="#">Адреса доставки</a>
-                        <a href="#">Мои заказы</a>
-                        <a href="#">Избранное</a>
+                        <a href="#">Профиль</a> <a href="#">Адреса доставки</a>
+                        <a href="#">Мои заказы</a> <a href="#">Избранное</a>
                       </div>
                     </div>
                   </div>
@@ -175,8 +170,34 @@ export default {
       mobileMenuOpen: false,
       cartOpen: false,
 
-    
-      
+      items: [
+        {
+          label: 'Виды рыбы',
+        },
+        {
+          label: 'Каталог',
+          nodes: [
+            {
+              label: 'Снеки',
+            },
+            {
+              label: 'Чипсы',
+            },
+            {
+              label: 'Семга слабосолёная',
+            },
+          ],
+        },
+        {
+          label: 'Новинки и акции',
+        },
+        {
+          label: 'Доставка и оплата',
+        },
+        {
+          label: 'Статьи',
+        },
+      ],
     }
   },
 
