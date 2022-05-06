@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Header from '@/layouts/header/index.vue'
-import Footer from '@/layouts/footer/index.vue'
+import Header from '@/layouts/main/Header.vue'
+import Footer from '@/layouts/main/Footer.vue'
 
 export default {
   name: 'DefaultLayout',
