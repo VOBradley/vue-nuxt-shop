@@ -317,4 +317,8 @@
   .modal-call-block button {
       width: 100%;
   }
+
+  .banner-btn-wrap {
+      width: 90%;
+  }
 }
