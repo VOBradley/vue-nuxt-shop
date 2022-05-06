@@ -25,8 +25,9 @@
                   :key="item.label"
                   :class="{ headerNavLinkOpenMenu: item.nodes }"
                 >
-                  <a href="#" class="header-nav-link">{{ item.label }} </a>
-                  <ul v-if="item.nodes">
+                  <a href="#" class="header-nav-link" v-if="item.nodes" @click="item.dropdown = !item.dropdown">{{ item.label }} </a>
+                  <a href="#" class="header-nav-link" v-if="!item.nodes">{{ item.label }} </a>
+                  <ul v-if="item.dropdown == true">
                     <li v-for="node in item.nodes" :key="node.label">
                       <a href="#">{{ node.label }}</a>
                     </li>
@@ -176,6 +177,7 @@ export default {
         },
         {
           label: 'Каталог',
+          dropdown: false,
           nodes: [
             {
               label: 'Снеки',

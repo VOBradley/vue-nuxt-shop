@@ -2338,6 +2338,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .header-nav-link ul li.headerNavLinkOpenMenu a {
   padding-right: 30px !important;
+  border-radius: 0;
 }
 
 .headerNavLinkOpenMenu>a:before {
@@ -2376,7 +2377,6 @@ input[type=range]:focus::-ms-fill-upper {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 
-  display: none;
   flex-direction: column;
   padding: 15px 0;
 }
