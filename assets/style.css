@@ -22,6 +22,11 @@ a {
   display: inline-block;
 }
 
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .header {
   margin-bottom: 25px;
 }
@@ -883,6 +888,7 @@ img {
 
 .header-nav {
   position: relative;
+  z-index: 20;
 }
 
 .modal-cart {
@@ -1005,7 +1011,7 @@ img {
 
 .modal-account {
   position: absolute;
-  top: 100%;
+  top: 110%;
   left: 50%;
   z-index: 11;
   transform: translateX(-50%);
@@ -1013,6 +1019,9 @@ img {
   padding: 15px 25px;
   box-shadow: 4px 2px 6px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
   border-radius: 10px;
+  display: block;
+  height: auto;
+  width: 50%;
 }
 
 .header-nav-link ul li .modal-account-block-btn-list a {
@@ -2333,6 +2342,10 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .headerNavLinkOpenMenu {
+  position: relative;
+}
+
+.header-nav-link {
   position: relative;
 }
 

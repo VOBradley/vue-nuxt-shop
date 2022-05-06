@@ -11,113 +11,13 @@
       </div>
       <div class="container">
         <div class="header-wrapper">
-          <div class="header-nav">
-            <div class="header-nav-menu-mobile" @click="toggleMobileMenu()">
-              <img src="@/static/img/icon-menu.svg" alt="" />
-            </div>
-            <div class="header-nav-logo">
-              <img src="@/static/img/logo.svg" alt="Логотип компании" />
-            </div>
-            <div class="header-nav-link">
-              <ul>
-                <li
-                  v-for="item in items"
-                  :key="item.label"
-                  :class="{ headerNavLinkOpenMenu: item.nodes }"
-                >
-                  <a href="#" class="header-nav-link" v-if="item.nodes" @click="item.dropdown = !item.dropdown">{{ item.label }} </a>
-                  <a href="#" class="header-nav-link" v-if="!item.nodes">{{ item.label }} </a>
-                  <ul v-if="item.dropdown == true">
-                    <li v-for="node in item.nodes" :key="node.label">
-                      <a href="#">{{ node.label }}</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="header-nav-account-li">
-                  <a href="#" class="header-nav-account"
-                    ><img
-                      src="/_nuxt/static/img/icon-account.svg"
-                      alt="Иконка аккаунта"
-                      class="filter-white"
-                  /></a>
-                  <div class="modal modal-account" style="display: none">
-                    <div class="modal-account-block">
-                      <div class="modal-account-block-btn-list">
-                        <a href="#">Личный кабинет</a> <a href="#">Вход</a>
-                        <a href="#">Регистрация</a>
-                      </div>
-                      <div class="modal-account-block-link-list">
-                        <a href="#">Профиль</a> <a href="#">Адреса доставки</a>
-                        <a href="#">Мои заказы</a> <a href="#">Избранное</a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="header-nav-cart @click='cartOpen()'">
-              <div class="header-nav-cart-info">
-                0 товаров
-                <span>0 руб.</span>
-              </div>
-              <a href="#" class="header-nav-cart-icon" @click="toggleCart()">
-                <img
-                  class="filter-red"
-                  src="@/static/img/icon-cart.svg"
-                  alt="Иконка корзины"
-                />
-              </a>
-              <div class="modal modal-cart" v-show="cartOpen">
-                <div class="row">
-                  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="product-block">
-                      <div class="product-img">
-                        <img src="~/static/img/btemp1.jpg" alt="" />
-                        <div class="product-like">
-                          <img
-                            class="filter-white product-like-img"
-                            src="@/static/img/icon-like.svg"
-                            alt=""
-                          />
-                        </div>
-                      </div>
-                      <h3>Мидии с лимоном</h3>
-                      <div class="product-delivery">
-                        <img src="@/static/img/icon-delivery.svg" alt="" />
-                        Понедельник
-                      </div>
-                      <div class="product-buy">
-                        <div class="product-price">82 руб</div>
-                        <div class="product-q">2 шт</div>
-                        <button class="product-buy-btn">Купить</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="modal-cart-bottom row d-flex align-items-center justify-content-center"
-                  >
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                      <div class="modal-cart-both">
-                        Итого:
-                        <span>5000 р.</span>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                      <a href="#" class="modal-cart-btn">Корзина</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <HeaderNav />
           <div class="header-info">
             <div class="header-title">
               <h1>
-                Производство и продажа <br />
-                закусок к пиву
+                {{ title}}
               </h1>
-              <a href="#">Заказать прайс</a>
+              <NuxtLink to="/">Калькулятор стоимости</NuxtLink>
               <p>Поиск по каталогу</p>
               <div class="search-block">
                 <label for="search">
@@ -159,47 +59,19 @@
 <script>
 import Nav from '@/layouts/main/Nav.vue'
 import MobileMenu from '@/layouts/main/MobileMenu.vue'
+import HeaderNav from '@/layouts/main/HeaderNav.vue'
 
 export default {
   name: 'Header',
   components: {
     Nav,
     MobileMenu,
+    HeaderNav,
   },
   data() {
     return {
+      title: 'Системы безопасности и видеонаблюдение',
       mobileMenuOpen: false,
-      cartOpen: false,
-
-      items: [
-        {
-          label: 'Виды рыбы',
-        },
-        {
-          label: 'Каталог',
-          dropdown: false,
-          nodes: [
-            {
-              label: 'Снеки',
-            },
-            {
-              label: 'Чипсы',
-            },
-            {
-              label: 'Семга слабосолёная',
-            },
-          ],
-        },
-        {
-          label: 'Новинки и акции',
-        },
-        {
-          label: 'Доставка и оплата',
-        },
-        {
-          label: 'Статьи',
-        },
-      ],
     }
   },
 
@@ -207,9 +79,6 @@ export default {
     toggleMobileMenu(open) {
       this.mobileMenuOpen = !this.mobileMenuOpen
       open = !open
-    },
-    toggleCart() {
-      this.cartOpen = !this.cartOpen
     },
   },
 }

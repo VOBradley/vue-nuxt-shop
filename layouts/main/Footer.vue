@@ -42,31 +42,7 @@
               <img class="filter-white" src="@/static/img/icon-email.svg" alt="" />
               +7 (926) 946-00-46
             </a>
-            <div class="search-block">
-              <label for="search">
-                <div class="search-block-icon">
-                  <img
-                    class="filter-white"
-                    src="@/static/img/icon-search.svg"
-                    alt="Иконка поиска"
-                  />
-                </div>
-                <input
-                  id="search"
-                  name="search"
-                  class="search-block-input"
-                  type="search"
-                  placeholder="Поиск.."
-                />
-                <button class="search-block-btn">
-                  <img
-                    class="filter-white"
-                    src="@/static/img/arrow-btn.svg"
-                    alt="Иконка вправо"
-                  />
-                </button>
-              </label>
-            </div>
+            <Search />
             <div class="footer-block-copy">Текст копирайта, длинный 2022C</div>
           </div>
         </div>
@@ -76,9 +52,13 @@
 </template>
 
 <script>
+  import Search from '@/components/Search'
+
   export default {
     name: 'Footer',
-    components: {},
+    components: {
+      Search,
+    },
     data() {
       return {
         

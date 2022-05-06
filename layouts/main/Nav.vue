@@ -3,38 +3,29 @@
     <div class="container">
       <div class="nav-wrapper">
         <div class="nav-left">
-          <a class="nav-link" href="about.html">О компании</a>
-          <a class="nav-link" href="supplier.html">Поставщикам</a>
-          <a class="nav-link" href="contacts.html">Контакты</a>
+          <NuxtLink
+            v-for="item in items"
+            :key="item.label"
+            class="nav-link"
+            :to="item.link"
+            >{{ item.label }}</NuxtLink
+          >
         </div>
 
         <div class="nav-right">
           <button class="nav-callback callBack">Обратный звонок</button>
-          <a class="nav-phone" href="tel:988444">+7 (495) 970-46-00</a>
-          <a class="nav-social" href="#"
+          <a class="nav-phone" :href="`tel:${phone}`">{{ phone }}</a>
+          <NuxtLink
+            v-for="soc in social"
+            :key="soc.icon"
+            class="nav-social"
+            :to="soc.link"
             ><img
               class="filter-white"
-              src="@/static/img/icon-vk.svg"
-              alt="Иконка вконтакте"
-          /></a>
-          <a class="nav-social" href="#"
-            ><img
-              class="filter-white"
-              src="@/static/img/icon-instagram.svg"
-              alt="Иконка инстаграм"
-          /></a>
-          <a class="nav-social" href="#"
-            ><img
-              class="filter-white"
-              src="@/static/img/icon-youtube.svg"
-              alt="Иконка ютуб"
-          /></a>
-          <a class="nav-social" href="#"
-            ><img
-              class="filter-white"
-              src="@/static/img/icon-whatsapp.svg"
+              :src="soc.icon"
               alt="Иконка вотсап"
-          /></a>
+          /></NuxtLink
+          >
         </div>
       </div>
     </div>
@@ -46,7 +37,43 @@ export default {
   name: 'Nav',
   components: {},
   data() {
-    return {}
+    return {
+      items: [
+        {
+          label: 'О компании',
+          link: '/'
+        },
+        {
+          label: 'Поставщикам',
+          link: '/'
+        },
+        {
+          label: 'Контакты',
+          link: '/'
+        }
+      ],
+
+      phone: '+996700000157',
+
+      social: [
+        {
+          icon: '/img/icon-vk.svg',
+          link: '/'
+        },
+        {
+          icon: '/img/icon-instagram.svg',
+          link: '/'
+        },
+        {
+          icon: '/img/icon-youtube.svg',
+          link: '/'
+        },
+        {
+          icon: '/img/icon-whatsapp.svg',
+          link: '/'
+        },
+      ]
+    }
   },
 }
 </script>
