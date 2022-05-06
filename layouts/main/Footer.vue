@@ -4,46 +4,38 @@
       <div class="row">
         <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
           <div class="footer-block">
-            <a href="#" class="footer-block-big-link">ТОВАРЫ ПО АКЦИЯМ</a>
-            <a href="#" class="footer-block-big-link">Хиты</a>
-            <a href="#" class="footer-block-big-link">ТОВАРЫ ПО АКЦИЯМ</a>
-            <a href="#" class="footer-block-big-link">Хиты</a>
-            <a href="#" class="footer-block-big-link">ТОВАРЫ ПО АКЦИЯМ</a>
-            <a href="#" class="footer-block-big-link">Хиты</a>
+            <NuxtLink v-for="mainLink in mainLinks" :key="mainLink.label" class="footer-block-big-link" :to="mainLink.link">
+              {{ mainLink.label }}
+            </NuxtLink>
           </div>
         </div>
         <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
           <div class="footer-block">
-            <a href="#" class="footer-block-big-link">ТОВАРЫ ПО АКЦИЯМ</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
+            <NuxtLink v-for="newsLink in newsLinks" :key="newsLink.label" class="footer-block-little-link" :to="newsLink.link">
+              {{ newsLink.label }}
+            </NuxtLink>
           </div>
         </div>
         <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
           <div class="footer-block">
-            <a href="#" class="footer-block-big-link">ТОВАРЫ ПО АКЦИЯМ</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
-            <a href="#" class="footer-block-little-link">Партнёрам</a>
+            <NuxtLink v-for="otherLink in otherLinks" :key="otherLink.label" class="footer-block-little-link" :to="otherLink.link">
+              {{ otherLink.label }}
+            </NuxtLink>
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
           <div class="footer-block">
-            <a href="#" class="footer-block-contact">
-              <img class="filter-white" src="@/static/img/icon-phone.svg" alt="" />
-              +7 (926) 946-00-46
-            </a>
-            <a href="#" class="footer-block-contact">
-              <img class="filter-white" src="@/static/img/icon-email.svg" alt="" />
-              +7 (926) 946-00-46
-            </a>
+            <NuxtLink
+              class="footer-block-contact"
+              v-for="contact in contactData"
+              :key="contact.label"
+              to="/"
+              >
+              <img :src="contact.icon" class="filter-white" alt="">
+              {{ contact.label }}</NuxtLink
+            >
             <Search />
-            <div class="footer-block-copy">Текст копирайта, длинный 2022C</div>
+            <div class="footer-block-copy">{{ copyText }}</div>
           </div>
         </div>
       </div>
@@ -52,17 +44,93 @@
 </template>
 
 <script>
-  import Search from '@/components/Search'
+import Search from '@/components/Search'
 
-  export default {
-    name: 'Footer',
-    components: {
-      Search,
-    },
-    data() {
-      return {
-        
-      }
-    },
-  }
+export default {
+  name: 'Footer',
+  components: {
+    Search,
+  },
+  data() {
+    return {
+      contactData: [
+        {
+          icon: '/img/icon-phone.svg',
+          label: '+996700000157',
+        },
+        {
+          icon: '/img/icon-email.svg',
+          label: 'vladobradley@yahoo.com',
+        },
+      ],
+
+      mainLinks: [
+        {
+          label: 'Главная',
+          link: '/',
+        },
+        {
+          label: 'О нас',
+          link: '/about',
+        },
+        {
+          label: 'Каталог',
+          link: '/catalog',
+        },
+        {
+          label: 'Контакты',
+          link: '/contacts',
+        },
+      ],
+
+      newsLinks: [
+        {
+          label: 'Новости',
+          link: '/news',
+        },
+        {
+          label: 'Статьи',
+          link: '/articles',
+        },
+        {
+          label: 'Акции',
+          link: '/promotions',
+        },
+        {
+          label: 'Новости',
+          link: '/news',
+        },
+        {
+          label: 'Статьи',
+          link: '/articles',
+        },
+        {
+          label: 'Акции',
+          link: '/promotions',
+        },
+      ],
+
+      otherLinks: [
+        {
+          label: 'Политика конфиденциальности',
+          link: '/privacy-policy',
+        },
+        {
+          label: 'Политика обработки персональных данных',
+          link: '/personal-data-processing-policy',
+        },
+        {
+          label: 'Политика возврата товара',
+          link: '/return-policy',
+        },
+        {
+          label: 'Политика обмена товарами',
+          link: '/exchange-policy',
+        },
+      ],
+
+      copyText: 'Копирайт текст 2022'
+    }
+  },
+}
 </script>
