@@ -452,7 +452,15 @@ img {
 }
 
 .snack-list {
-  display: none;
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.4s;
+}
+
+.snack-block:hover .snack-list {
+  height: 100%;
+  transform: scaleY(1);
 }
 
 .snack-list li a {
@@ -2349,6 +2357,10 @@ input[type=range]:focus::-ms-fill-upper {
   position: relative;
 }
 
+.headerNavLinkOpenMenuMobile {
+  position: relative;
+}
+
 .header-nav-link {
   position: relative;
 }
@@ -2374,6 +2386,28 @@ input[type=range]:focus::-ms-fill-upper {
   background-repeat: no-repeat;
 
   pointer-events: none;
+
+  transition: 0;
+}
+
+.headerNavLinkOpenMenuMobile>a:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+
+  background-image: url(@/static/img/arrow-drop-down.svg);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  pointer-events: none;
+
+  filter: invert(1);
 
   transition: 0;
 }

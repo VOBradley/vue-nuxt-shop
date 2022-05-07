@@ -4,7 +4,7 @@
       <div class="nav-wrapper">
         <div class="nav-left">
           <NuxtLink
-            v-for="item in items"
+            v-for="item in topItems"
             :key="item.label"
             class="nav-link"
             :to="item.link"
@@ -38,20 +38,7 @@ export default {
   components: {},
   data() {
     return {
-      items: [
-        {
-          label: 'О компании',
-          link: '/'
-        },
-        {
-          label: 'Поставщикам',
-          link: '/'
-        },
-        {
-          label: 'Контакты',
-          link: '/'
-        }
-      ],
+      
 
       phone: '+996700000157',
 
