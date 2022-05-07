@@ -83,32 +83,7 @@ export default {
         },
       ],
 
-      newsLinks: [
-        {
-          label: 'Новости',
-          link: '/news',
-        },
-        {
-          label: 'Статьи',
-          link: '/articles',
-        },
-        {
-          label: 'Акции',
-          link: '/promotions',
-        },
-        {
-          label: 'Новости',
-          link: '/news',
-        },
-        {
-          label: 'Статьи',
-          link: '/articles',
-        },
-        {
-          label: 'Акции',
-          link: '/promotions',
-        },
-      ],
+      newsLinks: this.$store.state.nav,
 
       otherLinks: [
         {

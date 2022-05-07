@@ -20,12 +20,8 @@
             :key="soc.icon"
             class="nav-social"
             :to="soc.link"
-            ><img
-              class="filter-white"
-              :src="soc.icon"
-              alt="Иконка вотсап"
-          /></NuxtLink
-          >
+            ><img class="filter-white" :src="soc.icon" alt="Иконка вотсап"
+          /></NuxtLink>
         </div>
       </div>
     </div>
@@ -38,28 +34,28 @@ export default {
   components: {},
   data() {
     return {
-      
+      topItems: this.$store.state.nav,
 
       phone: '+996700000157',
 
       social: [
         {
           icon: '/img/icon-vk.svg',
-          link: '/'
+          link: '/',
         },
         {
           icon: '/img/icon-instagram.svg',
-          link: '/'
+          link: '/',
         },
         {
           icon: '/img/icon-youtube.svg',
-          link: '/'
+          link: '/',
         },
         {
           icon: '/img/icon-whatsapp.svg',
-          link: '/'
+          link: '/',
         },
-      ]
+      ],
     }
   },
 }

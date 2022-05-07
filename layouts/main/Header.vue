@@ -49,23 +49,18 @@
         </div>
       </div>
     </header>
-    <MobileMenu
-      :open.sync="mobileMenuOpen"
-      @toggleMobileMenu="toggleMobileMenu()"
-    />
+
   </div>
 </template>
 
 <script>
 import Nav from '@/layouts/main/Nav.vue'
-import MobileMenu from '@/layouts/main/MobileMenu.vue'
 import HeaderNav from '@/layouts/main/HeaderNav.vue'
 
 export default {
   name: 'Header',
   components: {
     Nav,
-    MobileMenu,
     HeaderNav,
   },
   data() {

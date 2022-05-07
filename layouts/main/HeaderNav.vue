@@ -48,12 +48,20 @@
             <div class="modal modal-account" v-if="accountMenuOpen">
               <div class="modal-account-block">
                 <div class="modal-account-block-btn-list">
-                  <a href="#">Личный кабинет</a> <a href="#">Вход</a>
-                  <a href="#">Регистрация</a>
+                  <NuxtLink
+                    v-for="item in auth"
+                    :key="item.label"
+                    :to="item.link"
+                    >{{ item.label }}</NuxtLink
+                  >
                 </div>
                 <div class="modal-account-block-link-list">
-                  <a href="#">Профиль</a> <a href="#">Адреса доставки</a>
-                  <a href="#">Мои заказы</a> <a href="#">Избранное</a>
+                  <NuxtLink
+                    v-for="item in morelink"
+                    :key="item.label"
+                    :to="item.link"
+                    >{{ item.label }}</NuxtLink
+                  >
                 </div>
               </div>
             </div>
@@ -136,36 +144,16 @@
           </div>
         </div>
 
-        <div class="search-block">
-          <label for="search">
-            <div class="search-block-icon">
-              <img
-                class="filter-white"
-                src="@/static/img/icon-search.svg"
-                alt="Иконка поиска"
-              />
-            </div>
-            <input
-              id="search"
-              name="search"
-              class="search-block-input"
-              type="search"
-              placeholder="Поиск.."
-            />
-            <button class="search-block-btn">
-              <img
-                class="filter-white"
-                src="@/static/img/arrow-btn.svg"
-                alt="Иконка вправо"
-              />
-            </button>
-          </label>
-        </div>
+        <Search />
 
         <div class="nav-left">
-          <a class="nav-link" href="about.html">О компании</a>
-          <a class="nav-link" href="supplier.html">Поставщикам</a>
-          <a class="nav-link" href="contacts.html">Контакты</a>
+          <NuxtLink
+            v-for="item in topnav"
+            :key="item.label"
+            class="nav-link"
+            :to="item.link"
+            >{{ item.label }}</NuxtLink
+          >
         </div>
 
         <ul>
@@ -205,15 +193,20 @@
             <div class="mobile-account">
               <div class="modal-account-block">
                 <div class="modal-account-block-btn-list">
-                  <a href="#">Личный кабинет</a>
-                  <a href="#">Вход</a>
-                  <a href="#">Регистрация</a>
+                  <NuxtLink
+                    v-for="item in auth"
+                    :key="item.label"
+                    :to="item.link"
+                    >{{ item.label }}</NuxtLink
+                  >
                 </div>
                 <div class="modal-account-block-link-list">
-                  <a href="#">Профиль</a>
-                  <a href="#">Адреса доставки</a>
-                  <a href="#">Мои заказы</a>
-                  <a href="#">Избранное</a>
+                  <NuxtLink
+                    v-for="item in morelink"
+                    :key="item.label"
+                    :to="item.link"
+                    >{{ item.label }}</NuxtLink
+                  >
                 </div>
               </div>
             </div>
@@ -254,9 +247,10 @@
 </template>
 
 <script>
+import Search from '~/components/Search.vue'
 export default {
   name: 'HeaderNav',
-  components: {},
+  components: { Search },
   data() {
     return {
       logo: '/img/logo.svg',
@@ -269,42 +263,10 @@ export default {
       cartCount: 0,
       cartPrice: 0,
 
-      items: [
-        {
-          label: 'Виды рыбы',
-          link: '/fish',
-        },
-        {
-          label: 'Каталог',
-          dropdown: false,
-          nodes: [
-            {
-              label: 'Снеки',
-              link: '/',
-            },
-            {
-              label: 'Чипсы',
-              link: '/',
-            },
-            {
-              label: 'Семга слабосолёная',
-              link: '/',
-            },
-          ],
-        },
-        {
-          label: 'Новинки и акции',
-          link: '/',
-        },
-        {
-          label: 'Доставка и оплата',
-          link: '/',
-        },
-        {
-          label: 'Статьи',
-          link: '/',
-        },
-      ],
+      topnav: this.$store.state.nav,
+      items: this.$store.state.middlenav,
+      auth: this.$store.state.auth,
+      morelink: this.$store.state.morelink,
     }
   },
 
