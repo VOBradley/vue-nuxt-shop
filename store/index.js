@@ -83,7 +83,30 @@ export const state = () => ({
       label: 'Подписка',
       link: '/',
     },
-  ]
+  ],
+
+  social: [
+    {
+      icon: '/img/icon-vk.svg',
+      link: '/',
+    },
+    {
+      icon: '/img/icon-instagram.svg',
+      link: '/',
+    },
+    {
+      icon: '/img/icon-youtube.svg',
+      link: '/',
+    },
+    {
+      icon: '/img/icon-whatsapp.svg',
+      link: '/',
+    },
+  ],
+
+  phone1: '996700000157',
+  phone2: '996700000157',
+  phone3: '996700000157',
 })
 
 export const getters = {

@@ -35,27 +35,8 @@ export default {
   data() {
     return {
       topItems: this.$store.state.nav,
-
-      phone: '+996700000157',
-
-      social: [
-        {
-          icon: '/img/icon-vk.svg',
-          link: '/',
-        },
-        {
-          icon: '/img/icon-instagram.svg',
-          link: '/',
-        },
-        {
-          icon: '/img/icon-youtube.svg',
-          link: '/',
-        },
-        {
-          icon: '/img/icon-whatsapp.svg',
-          link: '/',
-        },
-      ],
+      phone: this.$store.state.phone1,
+      social: this.$store.state.social,
     }
   },
 }

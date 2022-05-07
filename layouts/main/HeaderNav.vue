@@ -215,31 +215,14 @@
 
         <div class="nav-right">
           <button class="nav-callback callBack">Обратный звонок</button>
-          <a class="nav-phone" href="tel:988444">+7 (495) 970-46-00</a>
-          <a class="nav-social" href="#"
-            ><img
-              class="filter-white"
-              src="@/static/img/icon-vk.svg"
-              alt="Иконка вконтакте"
-          /></a>
-          <a class="nav-social" href="#"
-            ><img
-              class="filter-white"
-              src="@/static/img/icon-instagram.svg"
-              alt="Иконка инстаграм"
-          /></a>
-          <a class="nav-social" href="#"
-            ><img
-              class="filter-white"
-              src="@/static/img/icon-youtube.svg"
-              alt="Иконка ютуб"
-          /></a>
-          <a class="nav-social" href="#"
-            ><img
-              class="filter-white"
-              src="@/static/img/icon-whatsapp.svg"
-              alt="Иконка вотсап"
-          /></a>
+          <a class="nav-phone" :href="`tel:${phone}`">{{ phone }}</a>
+          <NuxtLink
+            v-for="soc in social"
+            :key="soc.icon"
+            class="nav-social"
+            :to="soc.link"
+            ><img class="filter-white" :src="soc.icon" alt="Иконка вотсап"
+          /></NuxtLink>
         </div>
       </div>
     </div>
@@ -267,6 +250,8 @@ export default {
       items: this.$store.state.middlenav,
       auth: this.$store.state.auth,
       morelink: this.$store.state.morelink,
+      social: this.$store.state.social,
+      phone: this.$store.state.phone1,
     }
   },
 
