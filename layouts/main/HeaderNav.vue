@@ -14,13 +14,13 @@
             :key="item.label"
             :class="{ headerNavLinkOpenMenu: item.nodes }"
           >
-            <a
-              href="#"
+            <span
               class="header-nav-link"
               v-if="item.nodes"
               @click="item.dropdown = !item.dropdown"
-              >{{ item.label }}
-            </a>
+            >
+              {{ item.label }}
+            </span>
             <NuxtLink
               class="header-nav-link"
               :to="item.link"
@@ -162,13 +162,13 @@
             :key="item.label"
             :class="{ headerNavLinkOpenMenuMobile: item.nodes }"
           >
-            <a
-              href="#"
+            <span
               class="header-nav-link"
               v-if="item.nodes"
               @click="item.dropdown = !item.dropdown"
-              >{{ item.label }}
-            </a>
+            >
+              {{ item.label }}
+            </span>
             <NuxtLink
               class="header-nav-link"
               :to="item.link"
@@ -231,6 +231,8 @@
 
 <script>
 import Search from '~/components/Search.vue'
+
+import { mapState } from 'vuex'
 export default {
   name: 'HeaderNav',
   components: { Search },
@@ -246,12 +248,107 @@ export default {
       cartCount: 0,
       cartPrice: 0,
 
-      topnav: this.$store.state.nav,
-      items: this.$store.state.middlenav,
-      auth: this.$store.state.auth,
-      morelink: this.$store.state.morelink,
-      social: this.$store.state.social,
-      phone: this.$store.state.phone1,
+      topnav: [
+        {
+          label: 'Поставщикам',
+          link: '/',
+        },
+        {
+          label: 'Поставки',
+          link: '/',
+        },
+        {
+          label: 'О нас',
+          link: '/',
+        },
+      ],
+      items: [
+        {
+          label: 'Виды рыбы',
+          link: '/fish',
+        },
+        {
+          label: 'Каталог',
+          dropdown: false,
+          nodes: [
+            {
+              label: 'Снеки',
+              link: '/',
+            },
+            {
+              label: 'Чипсы',
+              link: '/',
+            },
+            {
+              label: 'Семга слабосолёная',
+              link: '/',
+            },
+          ],
+        },
+        {
+          label: 'Новинки и акции',
+          link: '/',
+        },
+        {
+          label: 'Доставка и оплата',
+          link: '/',
+        },
+        {
+          label: 'Статьи',
+          link: '/',
+        },
+      ],
+      auth: [
+        {
+          label: 'Личный кабинет',
+          link: '',
+        },
+        {
+          label: 'Вход',
+          link: '',
+        },
+        {
+          label: 'Регистрация',
+          link: '',
+        },
+      ],
+      morelink: [
+        {
+          label: 'Подписка',
+          link: '/',
+        },
+        {
+          label: 'Подписка',
+          link: '/',
+        },
+        {
+          label: 'Подписка',
+          link: '/',
+        },
+        {
+          label: 'Подписка',
+          link: '/',
+        },
+      ],
+      social: [
+        {
+          icon: '/img/icon-vk.svg',
+          link: '/',
+        },
+        {
+          icon: '/img/icon-instagram.svg',
+          link: '/',
+        },
+        {
+          icon: '/img/icon-youtube.svg',
+          link: '/',
+        },
+        {
+          icon: '/img/icon-whatsapp.svg',
+          link: '/',
+        },
+      ],
+      phone: '996700000157',
     }
   },
 

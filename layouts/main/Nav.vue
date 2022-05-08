@@ -34,9 +34,39 @@ export default {
   components: {},
   data() {
     return {
-      topItems: this.$store.state.nav,
-      phone: this.$store.state.phone1,
-      social: this.$store.state.social,
+      topItems: [
+        {
+          label: 'Поставщикам',
+          link: '/',
+        },
+        {
+          label: 'Поставки',
+          link: '/',
+        },
+        {
+          label: 'О нас',
+          link: '/',
+        },
+      ],
+      social: [
+        {
+          icon: '/img/icon-vk.svg',
+          link: '/',
+        },
+        {
+          icon: '/img/icon-instagram.svg',
+          link: '/',
+        },
+        {
+          icon: '/img/icon-youtube.svg',
+          link: '/',
+        },
+        {
+          icon: '/img/icon-whatsapp.svg',
+          link: '/',
+        },
+      ],
+      phone: '996700000157',
     }
   },
 }

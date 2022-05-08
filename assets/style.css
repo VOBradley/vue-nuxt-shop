@@ -217,7 +217,8 @@ img {
   border-radius: 20px;
 }
 
-.header-nav-link ul li a {
+.header-nav-link ul li a,
+.header-nav-link ul li span {
   height: 40px;
   padding: 0px 10px;
   text-decoration: none;
@@ -241,8 +242,9 @@ img {
   border-bottom-right-radius: 50%;
 }
 
-.header-nav-link ul li a:hover {
-  background-color: #891D1C;
+.header-nav-link ul li a:hover,
+.header-nav-link ul li span:hover {
+background-color: #891D1C;
   color: white;
 }
 
@@ -2365,12 +2367,14 @@ input[type=range]:focus::-ms-fill-upper {
   position: relative;
 }
 
-.header-nav-link ul li.headerNavLinkOpenMenu a {
+.header-nav-link ul li.headerNavLinkOpenMenu a,
+.header-nav-link ul li.headerNavLinkOpenMenu span {
   padding-right: 30px !important;
   border-radius: 0;
 }
 
-.headerNavLinkOpenMenu>a:before {
+.headerNavLinkOpenMenu>a:before,
+.headerNavLinkOpenMenu>span:before {
   content: "";
   width: 10px;
   height: 10px;
@@ -2390,7 +2394,8 @@ input[type=range]:focus::-ms-fill-upper {
   transition: 0;
 }
 
-.headerNavLinkOpenMenuMobile>a:before {
+.headerNavLinkOpenMenuMobile>a:before,
+.headerNavLinkOpenMenuMobile>span:before {
   content: "";
   width: 10px;
   height: 10px;

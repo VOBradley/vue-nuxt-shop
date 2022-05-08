@@ -4,21 +4,36 @@
       <div class="row">
         <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
           <div class="footer-block">
-            <NuxtLink v-for="mainLink in mainLinks" :key="mainLink.label" class="footer-block-big-link" :to="mainLink.link">
+            <NuxtLink
+              v-for="mainLink in mainLinks"
+              :key="mainLink.label"
+              class="footer-block-big-link"
+              :to="mainLink.link"
+            >
               {{ mainLink.label }}
             </NuxtLink>
           </div>
         </div>
         <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
           <div class="footer-block">
-            <NuxtLink v-for="newsLink in newsLinks" :key="newsLink.label" class="footer-block-little-link" :to="newsLink.link">
+            <NuxtLink
+              v-for="newsLink in newsLinks"
+              :key="newsLink.label"
+              class="footer-block-little-link"
+              :to="newsLink.link"
+            >
               {{ newsLink.label }}
             </NuxtLink>
           </div>
         </div>
         <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
           <div class="footer-block">
-            <NuxtLink v-for="otherLink in otherLinks" :key="otherLink.label" class="footer-block-little-link" :to="otherLink.link">
+            <NuxtLink
+              v-for="otherLink in otherLinks"
+              :key="otherLink.label"
+              class="footer-block-little-link"
+              :to="otherLink.link"
+            >
               {{ otherLink.label }}
             </NuxtLink>
           </div>
@@ -30,8 +45,8 @@
               v-for="contact in contactData"
               :key="contact.label"
               to="/"
-              >
-              <img :src="contact.icon" class="filter-white" alt="">
+            >
+              <img :src="contact.icon" class="filter-white" alt="" />
               {{ contact.label }}</NuxtLink
             >
             <Search />
@@ -83,7 +98,20 @@ export default {
         },
       ],
 
-      newsLinks: this.$store.state.nav,
+      newsLinks: [
+        {
+          label: 'Поставщикам',
+          link: '/',
+        },
+        {
+          label: 'Поставки',
+          link: '/',
+        },
+        {
+          label: 'О нас',
+          link: '/',
+        },
+      ],
 
       otherLinks: [
         {
@@ -104,7 +132,7 @@ export default {
         },
       ],
 
-      copyText: 'Копирайт текст 2022'
+      copyText: 'Копирайт текст 2022',
     }
   },
 }
